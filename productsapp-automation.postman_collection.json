@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "8d8c0c5e-fbde-4b6d-b7a7-920d72de181a",
+		"name": "productsapp-automation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33712389"
+	},
+	"item": [
+		{
+			"name": "All Products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.test(\"value of [0].Id to be 1\", () => {pm.expect(jsonData[0].Id).to.equal(1)});\r",
+							"pm.test(\"value of [0].Id to be 2\", () => {pm.expect(jsonData[1].Id).to.equal(2)});\r",
+							"pm.test(\"value of [0].Id to be 3\", () => {pm.expect(jsonData[2].Id).to.equal(3)});\r",
+							"pm.test(\"response to be 200 OK\", () => {pm.response.to.have.status(200)});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44386/api/products",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44386",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "specific product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response to be 200 OK\", () => {pm.response.to.have.status(200)});\r",
+							"\r",
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"// For ID\r",
+							"pm.test(\"value of [0].Id to be 3\", () => {pm.expect(jsonData.Id).to.equal(3)});\r",
+							"//pm.test(\"value of [0].Id to be 2\", () => {pm.expect(jsonData.Id).to.equal(2)});\r",
+							"//pm.test(\"value of [0].Id to be 1\", () => {pm.expect(jsonData.Id).to.equal(1)});\r",
+							"//pm.test(\"value of [0].Id to be 0\", () => {pm.expect(jsonData.Id).to.equal(0)});\r",
+							"\r",
+							"//For Name\r",
+							"pm.test(\"Name should be Hammer\", () => {pm.expect(jsonData.Name).to.equal(\"Hammer\")});\r",
+							"//pm.test(\"Name should be Yoyo\", () => {pm.expect(jsonData.Name).to.equal(\"Yo-yo\")});\r",
+							"//pm.test(\"Name should be Tomato Soup\", () => {pm.expect(jsonData.Name).to.equal(\"Tomato Soup\")});\r",
+							"//pm.test(\"Name should be N/a\", () => {pm.expect(jsonData.Name).to.equal(\"N/A\")});\r",
+							"\r",
+							"//For Catagory\r",
+							"pm.test(\"Catagory should be Hardware\", () => {pm.expect(jsonData.Category).to.equal(\"Hardware\")});\r",
+							"//pm.test(\"Catagory should be Groceries\", () => {pm.expect(jsonData.Category).to.equal(\"Groceries\")});\r",
+							"//pm.test(\"Catagory should be Toys\", () => {pm.expect(jsonData.Category).to.equal(\"Toys\")});\r",
+							"//pm.test(\"Catagory should be N/A\", () => {pm.expect(jsonData.Category).to.equal(\"N/A\")});\r",
+							"\r",
+							"//For Price\r",
+							"pm.test(\"Price should be 16.99\", () => {pm.expect(jsonData.Price).to.equal(16.99)});\r",
+							"//pm.test(\"Price should be 3.75\", () => {pm.expect(jsonData.Price).to.equal(3.75)});\r",
+							"//pm.test(\"Price should be 1.00\", () => {pm.expect(jsonData.Price).to.equal(1.00)});\r",
+							"//pm.test(\"Price should be 0\", () => {pm.expect(jsonData.Price).to.equal(0)});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44386/api/products/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44386",
+					"path": [
+						"api",
+						"products",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
