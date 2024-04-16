@@ -17,7 +17,22 @@
 							"pm.test(\"value of [0].Id to be 1\", () => {pm.expect(jsonData[0].Id).to.equal(1)});\r",
 							"pm.test(\"value of [0].Id to be 2\", () => {pm.expect(jsonData[1].Id).to.equal(2)});\r",
 							"pm.test(\"value of [0].Id to be 3\", () => {pm.expect(jsonData[2].Id).to.equal(3)});\r",
-							"pm.test(\"response to be 200 OK\", () => {pm.response.to.have.status(200)});"
+							"pm.test(\"response to be 200 OK\", () => {pm.response.to.have.status(200)});\r",
+							"\r",
+							"//For Name\r",
+							"pm.test(\"Name should be Belt\", () => {pm.expect(jsonData[0].Name).to.equal(\"Potato Soup\")});\r",
+							"pm.test(\"Name should be Yoyo\", () => {pm.expect(jsonData[1].Name).to.equal(\"Belt\")});\r",
+							"pm.test(\"Name should be Tomato Soup\", () => {pm.expect(jsonData[2].Name).to.equal(\"stick\")});\r",
+							"\r",
+							"//For Catagory\r",
+							"pm.test(\"Catagory should be Schmoceries\", () => {pm.expect(jsonData[0].Category).to.equal(\"Schmoceries\")});\r",
+							"pm.test(\"Catagory should be clodes\", () => {pm.expect(jsonData[1].Category).to.equal(\"clodes\")});\r",
+							"pm.test(\"Catagory should be Hadware\", () => {pm.expect(jsonData[2].Category).to.equal(\"Hadware\")});\r",
+							"\r",
+							"//For Price\r",
+							"pm.test(\"Price should be 42.0\", () => {pm.expect(jsonData[0].Price).to.equal(42.0)});\r",
+							"pm.test(\"Price should be 12.0\", () => {pm.expect(jsonData[1].Price).to.equal(12.0)});\r",
+							"pm.test(\"Price should be 1.00\", () => {pm.expect(jsonData[2].Price).to.equal(1.00)});"
 						],
 						"type": "text/javascript",
 						"packages": {}
